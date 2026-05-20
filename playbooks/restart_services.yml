@@ -1,0 +1,17 @@
+---
+- name: "Self-Healing — Redémarrage services"
+  hosts: linux_cibles
+  become: true
+
+  tasks:
+    - name: "Identifier les services qui consomment trop de RAM"
+      shell: |
+        ps aux --sort=-%mem | head -5
+      register: top_processes
+
+    - name: "Afficher les processus"
+      debug:
+        msg: "{{ top_processes.stdout }}"
+
+    - name: "Vider le cache mémoire"
+      shell: sync && echo 3 > /proc/sys/vm/drop_caches

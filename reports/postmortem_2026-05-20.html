@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Post-Mortem — 2026-05-20</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0d1117; color: #e6edf3; padding: 40px; }
+        h1 { color: #58a6ff; }
+        h2 { color: #79c0ff; border-bottom: 1px solid #30363d; padding-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background: #161b22; padding: 12px; text-align: left; color: #8b949e; }
+        td { padding: 10px 12px; border-bottom: 1px solid #21262d; }
+        tr:hover { background: #161b22; }
+        .alert { background: #da3633; padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+        .status { color: #3fb950; font-weight: bold; }
+        .summary { background: #161b22; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .metric { display: inline-block; margin: 10px 20px; text-align: center; }
+        .metric-value { font-size: 36px; font-weight: bold; color: #58a6ff; }
+        .metric-label { color: #8b949e; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h1>📋 Rapport Post-Mortem — Self-Healing</h1>
+    <p>Généré le 2026-05-20 à 14:59:41</p>
+
+    <div class="summary">
+        <div class="metric">
+            <div class="metric-value">4</div>
+            <div class="metric-label">Incidents traités</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">0</div>
+            <div class="metric-label">Interventions humaines</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Auto-remédiation</div>
+        </div>
+    </div>
+
+    <h2>Détail des incidents</h2>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Timestamp</th>
+            <th>Alerte</th>
+            <th>Instance</th>
+            <th>Remédiation</th>
+            <th>Statut</th>
+        </tr>
+        
+        <tr>
+            <td>1</td>
+            <td>2026-05-20T14:55:38</td>
+            <td><span class="alert">DiskSpaceLow</span></td>
+            <td>192.168.1.40:9100</td>
+            <td>Nettoyage automatique du disque</td>
+            <td><span class="status">✓ triggered</span></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2026-05-20T14:55:38</td>
+            <td><span class="alert">HighMemoryUsage</span></td>
+            <td>192.168.1.40:9100</td>
+            <td>Redémarrage des services consommateurs</td>
+            <td><span class="status">✓ triggered</span></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>2026-05-20T14:55:38</td>
+            <td><span class="alert">HighCPUUsage</span></td>
+            <td>localhost:9100</td>
+            <td>Identification et kill des processus zombies</td>
+            <td><span class="status">✓ triggered</span></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>2026-05-20T14:55:38</td>
+            <td><span class="alert">InstanceDown</span></td>
+            <td>192.168.1.41:9100</td>
+            <td>Tentative de redémarrage du service</td>
+            <td><span class="status">✓ triggered</span></td>
+        </tr>
+    </table>
+
+    <h2>Conclusion</h2>
+    <p>Tous les incidents ont été détectés et remédiés automatiquement par le moteur Self-Healing.
+    Aucune intervention humaine n'a été nécessaire.</p>
+</body>
+</html>

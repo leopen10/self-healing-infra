@@ -1,0 +1,20 @@
+---
+- name: "Self-Healing — Nettoyage disque"
+  hosts: linux_cibles
+  become: true
+
+  tasks:
+    - name: "Supprimer les fichiers temporaires"
+      shell: |
+        find /tmp -type f -atime +7 -delete
+        find /var/log -name "*.gz" -delete
+        journalctl --vacuum-time=7d
+      register: cleanup_result
+
+    - name: "Vérifier l'espace libéré"
+      shell: df -h / | tail -1
+      register: disk_after
+
+    - name: "Afficher le résultat"
+      debug:
+        msg: "Disque après nettoyage : {{ disk_after.stdout }}"
